@@ -7,13 +7,11 @@ pipeline {
         stage("A") {
             agent any
             steps {
-                echo "${params.INSTALLER}"
-                echo 'INSTALLER: ' + params
                 step([  $class: 'CopyArtifact',
                         filter: '*',
                         fingerprintArtifacts: true,
                         projectName: 'piperbuild',
-                        selector: params.INSTALLER
+                        selector: buildParameter('INSTALLER')
                 ])
                 echo 'A'
             }
