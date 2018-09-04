@@ -5,14 +5,14 @@
 def installAirgapCredentials() {
     withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: '92935adf-cb3d-4f9a-847e-9011d6e0d9af',
                       usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-        sh 'bash ops/airgap/jenkins/install_artifactory_credentials.sh $USERNAME $PASSWORD'
+        sh 'echo bash ops/airgap/jenkins/install_artifactory_credentials.sh $USERNAME $PASSWORD'
     }
     withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: 'airgap-download-apikey',
                       usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-        sh 'bash ops/airgap/jenkins/install_download_apikey.sh $USERNAME $PASSWORD'
+        sh 'echo bash ops/airgap/jenkins/install_download_apikey.sh $USERNAME $PASSWORD'
     }
     withCredentials([file(credentialsId: 'martinosvc', variable: 'KEY_FILE')]) {
-        sh 'bash ops/airgap/jenkins/install_gcloud_credentials.sh $KEY_FILE'
+        sh 'echo bash ops/airgap/jenkins/install_gcloud_credentials.sh $KEY_FILE'
     }
 }
 
