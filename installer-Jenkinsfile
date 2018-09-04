@@ -5,12 +5,14 @@ pipeline {
             agent any
             steps {
                 echo 'A'
+                echo "${params.INSTALLER}"
             }
         }
         stage("B") {
             agent any
             steps {
                 echo 'B'
+                echo "${params.INSTALLER}"
             }
         }
     }
