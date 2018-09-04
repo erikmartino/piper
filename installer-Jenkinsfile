@@ -8,7 +8,7 @@ pipeline {
             agent any
             steps {
                 echo "${params.INSTALLER}"
-                echo 'INSTALLER: ' + params.INSTALLER
+                echo 'INSTALLER: ' + params
                 step([  $class: 'CopyArtifact',
                         filter: '*',
                         fingerprintArtifacts: true,
