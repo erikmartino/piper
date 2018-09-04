@@ -1,7 +1,7 @@
 pipeline {
     agent none
     parameters {
-        file description: 'Installer', name: 'INSTALLER'
+        file description: 'Installer', name: 'INSTALLER', projectName: 'piperbuild'
     }
     stages {
         stage("A") {
