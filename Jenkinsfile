@@ -1,14 +1,15 @@
 pipeline {
     parameters {
-        
-    }
 
-    stage("A") {
-        steps {
+    }
+    stages {
+        stage("A") {
+            steps {
+                echo 'A'
+            }
+        }
+        stage("B") {
             echo 'A'
         }
-    }
-    stage("B") {
-        echo 'A'
     }
 }
