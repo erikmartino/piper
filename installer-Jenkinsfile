@@ -1,20 +1,21 @@
 pipeline {
     agent none
     parameters {
-        run description: 'Installer', filter: 'STABLE', name: 'INSTALLER', projectName: 'piperbuild'
+        run description: 'Installer', name: 'INSTALLER', projectName: 'piperbuild'
     }
     stages {
         stage("A") {
             agent any
             steps {
+                echo "${params.INSTALLER}"
+                echo 'INSTALLER: ' + params.INSTALLER
                 step([  $class: 'CopyArtifact',
-                        filter: 'a.out',
+                        filter: '*',
                         fingerprintArtifacts: true,
                         projectName: 'piperbuild',
                         selector: params.INSTALLER
                 ])
                 echo 'A'
-                echo "${params.INSTALLER}"
             }
         }
         stage("B") {
