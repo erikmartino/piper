@@ -8,7 +8,9 @@ pipeline {
                 sh 'date >a.out'
             }
             post {
-                archiveArtifacts artifacts: '*.out'
+                success {
+                    archiveArtifacts artifacts: 'a.out'
+                }
             }
         }
         stage("B") {
@@ -17,7 +19,9 @@ pipeline {
                 sh 'date >b.out'
             }
             post {
-                archiveArtifacts artifacts: '*.out'
+                success {
+                    archiveArtifacts artifacts: 'b.out'
+                }
             }
         }
     }
