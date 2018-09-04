@@ -1,7 +1,7 @@
 pipeline {
     agent none
     parameters {
-        buildParameter description: 'Installer', name: 'INSTALLER'
+        file description: 'Installer', name: 'INSTALLER'
     }
     stages {
         stage("A") {
